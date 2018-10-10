@@ -39,11 +39,11 @@
             this.lbl_main_welcome.AutoSize = true;
             this.lbl_main_welcome.BackColor = System.Drawing.Color.DimGray;
             this.lbl_main_welcome.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lbl_main_welcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F);
+            this.lbl_main_welcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold);
             this.lbl_main_welcome.ForeColor = System.Drawing.Color.Black;
-            this.lbl_main_welcome.Location = new System.Drawing.Point(115, 15);
+            this.lbl_main_welcome.Location = new System.Drawing.Point(107, 15);
             this.lbl_main_welcome.Name = "lbl_main_welcome";
-            this.lbl_main_welcome.Size = new System.Drawing.Size(205, 53);
+            this.lbl_main_welcome.Size = new System.Drawing.Size(212, 53);
             this.lbl_main_welcome.TabIndex = 5;
             this.lbl_main_welcome.Text = "Welcome";
             // 
