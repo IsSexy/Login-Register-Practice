@@ -35,6 +35,7 @@ namespace WindowsFormsApp5
             reg.CancelButton.Click += new EventHandler(RegisterCancel_Click);
             reg.LoginButton.Click += new EventHandler(RegisterToLogin_Click);
             reg.ConfirmButton.Click += new EventHandler(RegisterConfirm_Click);
+            log.ConfirmButton.Click += new EventHandler(LoginConfirm_Click);
 
             this.Controls.Add(home);
             home.Location = new Point(0, 0);
@@ -88,6 +89,26 @@ namespace WindowsFormsApp5
                                                                                                   userDataSet.tbl_Users[0]["Password"]);
             home.SuccessLabel.Visible = true;
             home.Visible = true;
+        }
+
+        private void LoginConfirm_Click(object sender, EventArgs e)
+        {
+            string[] tempinfo = new string[2];
+            tempinfo = log.GetLoginInfo();
+            if(userTableAdapter.FillByLogin(userDataSet.tbl_Users, tempinfo[0], tempinfo[1]) < 1)
+            {
+                home.SuccessLabel.Text = "";
+                home.SuccessLabel.Text = "Login failed";
+                this.Controls.Remove(log);
+                home.Visible = true;
+            }
+            else
+            {
+                home.SuccessLabel.Text = "";
+                home.SuccessLabel.Text = string.Format("Login success, welcome {0}", userDataSet.tbl_Users[0]["Username"]);
+                this.Controls.Remove(log);
+                home.Visible = true;
+            }
         }
     }
 }

@@ -28,6 +28,24 @@ namespace WindowsFormsApp5
             get { return btn_login_confirm; }
         }
 
+        public string[] GetLoginInfo()
+        {
+            string[] tempinfo = new string[2];
+            tempinfo[0] = txt_login_username.Text;
+            tempinfo[1] = EncryptMe(txt_login_password.Text);
+            txt_login_username.Text = "";
+            txt_login_password.Text = "";
+            return tempinfo;
+        }
 
+        public string EncryptMe(string pass)
+        {
+            using (System.Security.Cryptography.SHA256Managed hasher = new System.Security.Cryptography.SHA256Managed())
+            {
+                UTF8Encoding utf8e = new UTF8Encoding();
+                byte[] newpass = hasher.ComputeHash(utf8e.GetBytes(pass));
+                return Convert.ToBase64String(newpass);
+            }
+        }
     }
 }
